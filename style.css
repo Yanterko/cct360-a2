@@ -1,0 +1,91 @@
+body {
+    font-family: 'DynaPuff', 'Trebuchet MS', sans-serif;  
+    /* Gradient: */
+    background-image: linear-gradient(to right, rgb(164, 222, 255) , rgb(226, 153, 255));  
+    /*Font Color*/
+    color: black;
+}
+
+hr {
+    color: white;
+}
+
+/* Text Specifications */
+H1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 3em;
+}
+
+#instruction {
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+#weather-div p {
+    padding: 5px;
+}
+
+/*Divs*/
+
+/*Weather div*/
+#weather-div {
+    margin:auto;
+    text-align: center;
+    border: none;  /*Might change the border later*/
+    border-radius: 10px;
+    width: 70%;
+    background-color: rgb(235, 235, 235);
+    padding: 20px;
+    /*transition*/
+    transition: width 2s, height 4s, background-color 3s;
+
+}
+
+#weather-div:hover{
+    width: 80%;
+    background-color: white;
+}
+
+/*inside weather div*/
+#slot-1, #slot-2, #slot-3, #slot-4 {
+}
+
+/*Outfit div*/
+#outfitcontainer_enabled {
+    border: none;  /*Might change the border later*/
+    border-radius: 10px;
+    width: 70%;
+    background-color: rgb(235, 235, 235);
+    transition: width 2s, height 4s, background-color 3s;
+    padding: 30px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#outfitcontainer_enabled:hover {
+  width: 80%;
+  background-color: rgb(255, 255, 255);
+}
+
+/*Inside outfit div: MISSING*/
+
+
+/*Button*/
+#recommendbtn{
+    border: none;
+    background-color: rgb(78, 31, 117);
+    color: white;
+    border-radius: 10px;
+    padding: 15px 30px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'DynaPuff', 'Trebuchet MS', sans-serif;  
+}
+
+#recommendbtn:hover {
+    background-color: gray;
+}
