@@ -1,21 +1,30 @@
 const WEATHER_URL = "https://api.open-meteo.com/v1/forecast?latitude=43.548363&longitude=-79.661718&current=temperature_2m,apparent_temperature,precipitation,rain,showers,snowfall&timezone=America%2FNew_York&forecast_days=1";
 
-// Messages for the recommendations
-const msg_temps = ["it's cold outside", "it's mild outside.. i mean, it's aight", "it's warm outside!"];    // 0 = cold, 1 = mild, 2 = warm
-const msg_precip = ["", "it's also raining outside.. get an umbrella and some rainboots", "it's also snowing outside.. bring on the pain!"];  // 0 = no precipitation, 1 = raining, 2 = snowing
+// This second API link is just for testing (Shows weather for Manila, Philippines). 
+// TODO: Remove this link before submission.
+const WEATHER_URL2 = "https://api.open-meteo.com/v1/forecast?latitude=14.6042&longitude=120.9822&current=temperature_2m,apparent_temperature,precipitation,rain,showers,snowfall&timezone=America%2FNew_York&forecast_days=1"
 
+/* 
+ * Temperature and precipitation states
+ * - Temperature states: 0 = Cold, 1 = Mild, 2 = Warm.
+ * - Precipitation states: 0 = None, 1 = raining, 2 = snowing, 3 = both!.
+ */
+let tempState = 0;
+let precipState = 0;    // TODO: What if it is raining and snowing?
+
+// Messages for the recommendations
+const msgTemps = ["it's cold outside", "it's mild outside.. i mean, it's aight", "it's warm outside!"];
+const msgPrecip = ["", "it's also raining.. get an umbrella and some rainboots", "it's also snowing.. bring on the pain!", "it's also raining and snowing?! uh oh... you're cooked! D:"];
+
+// List of image files
+const imgRootPath = "/images/";
+const imgTemps = [["Cold_Gloves.png", "Cold_Hat.png", "Cold_Jacket.png"], ["Mild_Sweater.png"], ["Warm_Shorts.png", "Warm_Sunscreen.png"]];
+const imgPrecip = [[], ["Rain_Rainboots.png", "Rain_Umbrella.png"], ["Snow_Boots.png"], ["Rain_Rainboots.png", "Rain_Umbrella.png", "Snow_Boots.png"]];
 
 // page elements
-let outfitContainer = document.querySelector("#outfitcontainer");
-let recommendBtn = document.getElementById("recommendbtn");
-let recommendText = document.getElementById("recommendation");
-
-// booleans for the different weather conditions
-let isRaining = false;
-let isSnowing = false;
-let isCold = false;
-let isMild = false;
-let isWarm = false;
+const outfitContainer = document.querySelector("#outfitcontainer");
+const recommendBtn = document.getElementById("recommendbtn");
+const recommendText = document.getElementById("recommendation");
 
 // fetch from the API
 fetch(WEATHER_URL)
@@ -26,11 +35,9 @@ fetch(WEATHER_URL)
     let rain = data.current.rain;
     let snow = data.current.snowfall;
 
-    isRaining = rain > 0;
-    isSnowing = snow > 0;
-    isCold = feelsLike <= 5;
-    isMild = feelsLike > 5 && feelsLike <= 18;
-    isWarm = feelsLike >= 19;
+    // Set tempState and precipState according to the legend given above
+    tempState = (feelsLike > 5 && feelsLike <= 18) + (2 * (feelsLike >= 19));
+    precipState = (rain > 0) + (2*(snow > 0));
     
     document.querySelector("#weather-slot-1").textContent = "Temperature: " + temperature + "°C";
     document.querySelector("#weather-slot-2").textContent = "Feels Like: " + feelsLike + "°C";
@@ -39,41 +46,43 @@ fetch(WEATHER_URL)
 });
 
 /*
- * Grab the weather from the API and return the string corresponding to the current temps
+ * This makes sure tempState and precipState stay within allowed values.
+ * Assuming that msgTemps.length == imagesTemps.length, and msgPrecip.length == imagesPrecip.length.
  */
-function getTempString() {
-    if (isCold) {
-        return msg_temps[0];
+function keepStatesInBounds() {
+    if (tempState < 0) {
+        tempState = 0;
     }
-    else if (isMild) {
-        return msg_temps[1];
+    else if (tempState >= msgTemps.length - 1 || tempState >= imgTemps.length - 1) {
+        tempState = msgTemps.length - 1;
     }
-    else if (isWarm) {
-        return msg_temps[2];
+
+    if (precipState < 0) {
+        precipState = 0;
+    }
+    else if (precipState >= msgPrecip.length - 1 || tempState >= imgPrecip.length - 1) {
+        precipState = msgPrecip.length - 1;
     }
 }
 
 /*
- * Grab the weather from the API and return the string corresponding to the current precipitation
+ * unhide the `outfitcontainer` and show the clothes you'll need for the given weather
  */
-function getPrecipString() {
-    if (isSnowing) {
-        return msg_precip[2];
-    }
-    else if (isRaining) {
-        return msg_precip[1];
-    }
-    else {
-        return msg_precip[0];
-    }
-}
-
-
-/*
-    unhide the `outfitcontainer` and show the clothes you'll need for the given weather
-*/
 function recommendClothes() {
-    recommendText.textContent = getTempString() + " " + getPrecipString();
+    keepStatesInBounds();
+    recommendText.textContent = msgTemps[tempState] + " " + msgPrecip[precipState];
+    for (let i = 0; i < imgTemps[tempState].length; i++) {
+        let d = document.createElement("img");
+        d.src = imgRootPath + imgTemps[tempState][i];
+        // TODO: Fix the oversized width and height
+        outfitContainer.appendChild(d);
+    }
+    for (let i = 0; i < imgPrecip[precipState].length; i++) {
+        let d = document.createElement("img");
+        d.src = imgRootPath + imgPrecip[precipState][i];
+        // TODO: Fix the oversized width and height
+        outfitContainer.appendChild(d);
+    }
     outfitContainer.hidden = false;
 }
 
