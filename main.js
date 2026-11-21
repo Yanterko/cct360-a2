@@ -37,7 +37,7 @@ fetch(WEATHER_URL)
 
     // Set tempState and precipState according to the legend given above
     // If you don't know: You can add booleans in JS, where true == 1, false == 0.
-    tempState = (feelsLike > 5 && feelsLike <= 18) + (2 * (feelsLike >= 19));
+    tempState = (temperature >= 8 && temperature < 20) + (2 * (temperature >= 20));
     precipState = (rain > 0) + (2*(snow > 0));
     
     document.querySelector("#weather-slot-1").textContent = "Temperature: " + temperature + "°C";
