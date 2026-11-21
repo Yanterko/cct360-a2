@@ -6,8 +6,25 @@ body {
     color: black;
 }
 
+
 hr {
-    color: white;
+    background-color: white;
+    border: 1px solid white;
+    width: 80%;
+}
+
+
+/*title section*/
+#titleSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/*Snowflake image*/
+#snowflake {
+    width: 80px;
 }
 
 /* Text Specifications */
@@ -24,39 +41,77 @@ H1 {
 }
 
 #weather-div p {
-    padding: 5px;
+    padding: 0px;
 }
 
 /*Divs*/
 
+/*Frames*/
+.style_frame {
+    margin:auto;
+    text-align: center;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 570px;
+    transition: width 2s;
+}
+
+.style_frame:hover {
+    width: 670px;
+}
+
+
 /*Weather div*/
 #weather-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    
     margin:auto;
     text-align: center;
     border: none;  /*Might change the border later*/
     border-radius: 10px;
-    width: 70%;
     background-color: rgb(235, 235, 235);
-    padding: 20px;
+    padding: 15px;
+    width: 550px;
+    height: 200px;
+    box-sizing: border-box;
     /*transition*/
     transition: width 2s, height 4s, background-color 3s;
 
 }
 
 #weather-div:hover{
-    width: 80%;
+    width: 650px;
     background-color: white;
 }
 
 /*inside weather div*/
-#slot-1, #slot-2, #slot-3, #slot-4 {
+.weather_column {
+    display: flex;     /*Why the heck won't it be a regular size*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    padding: 20px;
+    border-right: solid 2px rgb(180, 214, 255);
+    border-left: solid 2px rgb(180, 214, 255);
+    border-radius: 10px;
+}
+
+#weather_img {
+    width: 100px;
+    height: 100px;
 }
 
 /*Outfit div*/
 #outfitcontainer_enabled {
     border: none;  /*Might change the border later*/
     border-radius: 10px;
-    width: 70%;
+    width: 400px;
     background-color: rgb(235, 235, 235);
     transition: width 2s, height 4s, background-color 3s;
     padding: 30px;
@@ -65,7 +120,7 @@ H1 {
 }
 
 #outfitcontainer_enabled:hover {
-  width: 80%;
+  width: 500px;
   background-color: rgb(255, 255, 255);
 }
 

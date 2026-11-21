@@ -11,23 +11,37 @@
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Weather Wear</h1>
+    
+    <div id="titleSection">
+        <h1>Weather Wear</h1>
+        <img id="snowflake" src="images/Snowflake.svg" alt="image of a snowflake">
+    </div>
 
     <h3 id="instruction">Click the button to get an outfit recommendation based on the current weather!</h3>
     <button type="button" id="recommendbtn">Get Outfit Recommendation</button>
 
-    <div id="outfitcontainer">
-        <p id="recommendation"></p>
-
+    <div class="frame_notyet">
+        <div id="outfitcontainer">
+            <p id="recommendation"></p>
+        </div>
     </div>
 
-
     <h3 id="instruction">Current Weather:</h3>
-    <div id="weather-div">
-        <p id="slot-1"></p>
-        <p id="slot-2"></p>
-        <p id="slot-3"></p>
-        <p id="slot-4"></p>
+    
+    <div class="style_frame">
+        <div id="weather-div">
+            <div class="weather_column">
+                <p id="slot-1"></p>
+                <p id="slot-2"></p>
+            </div>
+            <div class="weather_column">
+                <p id="slot-3"></p>
+                <p id="slot-4"></p>
+            </div>
+            <div class="weather_column" id="image_column">
+                <img id="weather_img" src="images/Rain.svg" alt="rain">
+            </div>
+        </div>
     </div>
     <br>
     
