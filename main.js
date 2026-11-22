@@ -1,16 +1,12 @@
 const WEATHER_URL = "https://api.open-meteo.com/v1/forecast?latitude=43.548363&longitude=-79.661718&current=temperature_2m,apparent_temperature,precipitation,rain,showers,snowfall&timezone=America%2FNew_York&forecast_days=1";
 
-// This second API link is just for testing (Shows weather for Manila, Philippines). 
-// TODO: Remove this link before submission.
-const WEATHER_URL2 = "https://api.open-meteo.com/v1/forecast?latitude=14.6042&longitude=120.9822&current=temperature_2m,apparent_temperature,precipitation,rain,showers,snowfall&timezone=America%2FNew_York&forecast_days=1"
-
 /* 
  * Temperature and precipitation states
  * - Temperature states: 0 = Cold, 1 = Mild, 2 = Warm.
  * - Precipitation states: 0 = None, 1 = raining, 2 = snowing, 3 = both!.
  */
 let tempState = 0;
-let precipState = 0;    // TODO: What if it is raining and snowing?
+let precipState = 0;
 let hasGottenRec = false;
 
 // Messages for the recommendations
