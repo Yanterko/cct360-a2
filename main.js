@@ -14,7 +14,7 @@ const msgTemps = ["It's cold outside", "It's mild outside", "It's warm outside!"
 const msgPrecip = ["", "It's also raining... grab an umbrella.", "It's also snowing... dress for warmth!", "There's a chance of rain AND snow right now, expect slushy weather."];
 
 // List of image files
-const imgRootPath = "/images/";
+const imgRootPath = "images/";
 const imgTemps = [["Cold_Gloves.png", "Cold_Hat.png", "Cold_Jacket.png"], ["Mild_Sweater.png"], ["Warm_Shorts.png", "Warm_Sunscreen.png"]];
 const imgPrecip = [[], ["Rain_Rainboots.png", "Rain_Umbrella.png"], ["Snow_Boots.png"], ["Rain_Rainboots.png", "Rain_Umbrella.png", "Snow_Boots.png"]];
 
