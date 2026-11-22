@@ -23,8 +23,8 @@ const imgTemps = [["Cold_Gloves.png", "Cold_Hat.png", "Cold_Jacket.png"], ["Mild
 const imgPrecip = [[], ["Rain_Rainboots.png", "Rain_Umbrella.png"], ["Snow_Boots.png"], ["Rain_Rainboots.png", "Rain_Umbrella.png", "Snow_Boots.png"]];
 
 // List of descriptions
-const descTemps = [["Wear gloves to avoid getting frostbite", "Wear a hat to protect your ears and trap heat", "You'll need a jacket for warmth"], ["Bring a sweater in case you get cold"], ["Wear shorts for the heat", "Don't forget to protect your skin and wear sunscreen!"]];
-const descPrecip = [[], ["Wear rainboots to avoid getting your socks wet", "Bring an umbrella for the rain"], ["Wear snowboots for the snow!"], ["You can wear either rainboots or snowboots today, it's kind of slushy", "Bring an umbrella for the rain", "You can wear either rainboots or snowboots today, it's kind of slushy"]];
+const descTemps = [["Wear gloves to avoid getting frostbite.", "Wear a hat to protect your ears and trap heat.", "You'll need a jacket for warmth."], ["Bring a sweater in case you get cold."], ["Wear shorts for the heat.", "Don't forget to protect your skin and wear sunscreen!"]];
+const descPrecip = [[], ["Wear rainboots to avoid getting your socks wet.", "Bring an umbrella for the rain."], ["Wear snowboots for the snow!"], ["You can wear either rainboots or snowboots today, it's kind of slushy.", "Bring an umbrella for the rain.", "You can wear either rainboots or snowboots today, it's kind of slushy."]];
 
 // page elements
 const outfitContainer = document.querySelector("#outfitcontainer");
