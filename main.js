@@ -14,8 +14,8 @@ let precipState = 0;    // TODO: What if it is raining and snowing?
 let hasGottenRec = false;
 
 // Messages for the recommendations
-const msgTemps = ["it's cold outside", "it's mild outside today", "it's warm outside!"];
-const msgPrecip = ["", "it's also raining.. get an umbrella and some rainboots", "it's also snowing.. bring on the pain!", "it's also raining and snowing?! uh oh... you're cooked! D:"];
+const msgTemps = ["It's cold outside", "It's mild outside", "It's warm outside!"];
+const msgPrecip = ["", "It's also raining...grab an umbrella.", "It's also snowing...dress for warmth!", "There's a chance of rain AND snow right now, expect slushy weather."];
 
 // List of image files
 const imgRootPath = "/images/";
