@@ -6,6 +6,9 @@ body {
     background-image: linear-gradient(to right, rgb(164, 222, 255) , rgb(226, 153, 255));  
     /*Font Color*/
     color: black;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 button {
