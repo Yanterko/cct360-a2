@@ -14,8 +14,7 @@ let precipState = 0;    // TODO: What if it is raining and snowing?
 let hasGottenRec = false;
 
 // Messages for the recommendations
-// TODO: Change these messages to something a bit more high effort
-const msgTemps = ["it's cold outside", "it's mild outside.. i mean, it's aight", "it's warm outside!"];
+const msgTemps = ["it's cold outside", "it's mild outside today", "it's warm outside!"];
 const msgPrecip = ["", "it's also raining.. get an umbrella and some rainboots", "it's also snowing.. bring on the pain!", "it's also raining and snowing?! uh oh... you're cooked! D:"];
 
 // List of image files
@@ -24,9 +23,8 @@ const imgTemps = [["Cold_Gloves.png", "Cold_Hat.png", "Cold_Jacket.png"], ["Mild
 const imgPrecip = [[], ["Rain_Rainboots.png", "Rain_Umbrella.png"], ["Snow_Boots.png"], ["Rain_Rainboots.png", "Rain_Umbrella.png", "Snow_Boots.png"]];
 
 // List of descriptions
-// TODO: Change these descriptions to be more high effort
-const descTemps = [["Gloves", "Hat", "Jacket"], ["Sweater"], ["Shorts", "Sunscreen"]];
-const descPrecip = [[], ["Rainboots", "Umbrella"], ["Snowboots"], ["Rainboots", "Umbrella", "Snowboots"]];
+const descTemps = [["Wear gloves to avoid getting frostbite", "Wear a hat to protect your ears and trap heat", "You'll need a jacket for warmth"], ["Bring a sweater in case you get cold"], ["Wear shorts for the heat", "Don't forget to protect your skin and wear sunscreen!"]];
+const descPrecip = [[], ["Wear rainboots to avoid getting your socks wet", "Bring an umbrella for the rain"], ["Wear snowboots for the snow!"], ["You can wear either rainboots or snowboots today, it's kind of slushy", "Bring an umbrella for the rain", "You can wear either rainboots or snowboots today, it's kind of slushy"]];
 
 // page elements
 const outfitContainer = document.querySelector("#outfitcontainer");
