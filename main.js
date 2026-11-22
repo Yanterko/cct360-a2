@@ -41,10 +41,22 @@ fetch(WEATHER_URL)
     tempState = (temperature >= 8 && temperature < 20) + (2 * (temperature >= 20));
     precipState = (rain > 0) + (2*(snow > 0));
     
-    document.querySelector("#weather-slot-1").textContent = "Temperature: " + temperature + "°C";
-    document.querySelector("#weather-slot-2").textContent = "Feels Like: " + feelsLike + "°C";
-    document.querySelector("#weather-slot-3").textContent = "Rain: " + rain + "mm";
-    document.querySelector("#weather-slot-4").textContent = "Snow: " + snow + "mm";
+    document.querySelector("#weather-slot-1").textContent = temperature + "°C";
+    document.querySelector("#weather-slot-2").textContent = feelsLike + "°C";
+    document.querySelector("#weather-slot-3").textContent = rain + "mm";
+    document.querySelector("#weather-slot-4").textContent = snow + "mm";
+
+    //Weather images
+    if (rain > 0) {
+        document.querySelector("#weather_img").src = "images/Rain.svg"
+    }
+    else if (snow > 0) {
+        document.querySelector("#weather_img").src = "images/Snowflake.svg"
+    }
+
+    else {
+        document.querySelector("#weather_img").src = "images/Sun.svg"
+    }
 });
 
 /*
@@ -71,6 +83,13 @@ function keepStatesInBounds() {
  * unhide the `outfitcontainer` and show the clothes you'll need for the given weather
  */
 function recommendClothes() {
+    //Play bell sound
+    let bell = document.getElementById('bell');
+    bell.play();
+    bell.volume = .3;
+    bell.playbackRate = 1.5;
+
+
     keepStatesInBounds();
     recommendText.textContent = msgTemps[tempState] + " " + msgPrecip[precipState];
     for (let i = 0; i < imgTemps[tempState].length; i++) {
