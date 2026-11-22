@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
 body {
     font-family: 'DynaPuff', 'Trebuchet MS', sans-serif;  
     /* Gradient: */
@@ -6,6 +8,9 @@ body {
     color: black;
 }
 
+button {
+    cursor: pointer;
+}
 
 hr {
     background-color: white;
@@ -28,14 +33,14 @@ hr {
 }
 
 /* Text Specifications */
-H1 {
+h1 {
     margin-top: 50px;
     margin-bottom: 20px;
     text-align: center;
     font-size: 3em;
 }
 
-#instruction {
+.instruction {
     margin-left: 30px;
     margin-top: 40px;
 }
@@ -108,7 +113,7 @@ H1 {
 }
 
 /*Outfit div*/
-#outfitcontainer_enabled {
+#outfitcontainer {
     border: none;  /*Might change the border later*/
     border-radius: 10px;
     width: 400px;
@@ -119,7 +124,7 @@ H1 {
     margin-top: 30px;
 }
 
-#outfitcontainer_enabled:hover {
+#outfitcontainer:hover {
   width: 500px;
   background-color: rgb(255, 255, 255);
 }
