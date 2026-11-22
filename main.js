@@ -102,7 +102,6 @@ function recommendClothes() {
         d.style.height = "17.5vh";
         d.style.maxWidth = "17.5vh";
         d.style.margin = "2vh";
-        // TODO: Fix the oversized width and height
         outfitContainer.appendChild(d);
     }
     for (let i = 0; i < imgPrecip[precipState].length; i++) {
@@ -111,7 +110,6 @@ function recommendClothes() {
         d.style.height = "17.5vh";
         d.style.maxWidth = "17.5vh";
         d.style.margin = "2vh";
-        // TODO: Fix the oversized width and height
         outfitContainer.appendChild(d);
     }
     outfitContainer.hidden = false;
