@@ -11,6 +11,7 @@ const WEATHER_URL2 = "https://api.open-meteo.com/v1/forecast?latitude=14.6042&lo
  */
 let tempState = 0;
 let precipState = 0;    // TODO: What if it is raining and snowing?
+let hasGottenRec = false;
 
 // Messages for the recommendations
 // TODO: Change these messages to something a bit more high effort
@@ -28,7 +29,7 @@ const recommendBtn = document.getElementById("recommendbtn");
 const recommendText = document.getElementById("recommendation");
 
 // fetch from the API
-fetch(WEATHER_URL)
+fetch(WEATHER_URL2)
 .then(response => response.json())
 .then((data) => {
     let temperature = data.current.temperature_2m;
@@ -83,6 +84,9 @@ function keepStatesInBounds() {
  * unhide the `outfitcontainer` and show the clothes you'll need for the given weather
  */
 function recommendClothes() {
+    if (hasGottenRec) {
+        return;
+    }
     //Play bell sound
     let bell = document.getElementById('bell');
     bell.play();
@@ -95,16 +99,23 @@ function recommendClothes() {
     for (let i = 0; i < imgTemps[tempState].length; i++) {
         let d = document.createElement("img");
         d.src = imgRootPath + imgTemps[tempState][i];
+        d.style.height = "17.5vh";
+        d.style.maxWidth = "17.5vh";
+        d.style.margin = "2vh";
         // TODO: Fix the oversized width and height
         outfitContainer.appendChild(d);
     }
     for (let i = 0; i < imgPrecip[precipState].length; i++) {
         let d = document.createElement("img");
         d.src = imgRootPath + imgPrecip[precipState][i];
+        d.style.height = "17.5vh";
+        d.style.maxWidth = "17.5vh";
+        d.style.margin = "2vh";
         // TODO: Fix the oversized width and height
         outfitContainer.appendChild(d);
     }
     outfitContainer.hidden = false;
+    hasGottenRec = true;
 }
 
 recommendBtn.addEventListener("click", recommendClothes);
