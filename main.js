@@ -13,6 +13,7 @@ let tempState = 0;
 let precipState = 0;    // TODO: What if it is raining and snowing?
 
 // Messages for the recommendations
+// TODO: Change these messages to something a bit more high effort
 const msgTemps = ["it's cold outside", "it's mild outside.. i mean, it's aight", "it's warm outside!"];
 const msgPrecip = ["", "it's also raining.. get an umbrella and some rainboots", "it's also snowing.. bring on the pain!", "it's also raining and snowing?! uh oh... you're cooked! D:"];
 
