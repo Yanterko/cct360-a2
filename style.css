@@ -136,7 +136,7 @@ h1 {
 #outfitcontainer {
     border: none;  /*Might change the border later*/
     border-radius: 10px;
-    width: 400px;
+    width: 600px;
     background-color: rgb(235, 235, 235);
     transition: width 2s, height 4s, background-color 3s;
     padding: 30px;
@@ -145,7 +145,7 @@ h1 {
 }
 
 #outfitcontainer:hover {
-  width: 500px;
+  width: 700px;
   background-color: rgb(255, 255, 255);
 }
 

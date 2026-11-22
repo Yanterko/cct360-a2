@@ -23,13 +23,19 @@ const imgRootPath = "/images/";
 const imgTemps = [["Cold_Gloves.png", "Cold_Hat.png", "Cold_Jacket.png"], ["Mild_Sweater.png"], ["Warm_Shorts.png", "Warm_Sunscreen.png"]];
 const imgPrecip = [[], ["Rain_Rainboots.png", "Rain_Umbrella.png"], ["Snow_Boots.png"], ["Rain_Rainboots.png", "Rain_Umbrella.png", "Snow_Boots.png"]];
 
+// List of descriptions
+// TODO: Change these descriptions to be more high effort
+const descTemps = [["Gloves", "Hat", "Jacket"], ["Sweater"], ["Shorts", "Sunscreen"]];
+const descPrecip = [[], ["Rainboots", "Umbrella"], ["Snowboots"], ["Rainboots", "Umbrella", "Snowboots"]];
+
 // page elements
 const outfitContainer = document.querySelector("#outfitcontainer");
 const recommendBtn = document.getElementById("recommendbtn");
 const recommendText = document.getElementById("recommendation");
+const recommendDesc = document.getElementById("clothingItemText");
 
 // fetch from the API
-fetch(WEATHER_URL2)
+fetch(WEATHER_URL)
 .then(response => response.json())
 .then((data) => {
     let temperature = data.current.temperature_2m;
@@ -102,6 +108,9 @@ function recommendClothes() {
         d.style.height = "17.5vh";
         d.style.maxWidth = "17.5vh";
         d.style.margin = "2vh";
+        d.addEventListener("mouseover", function() {
+            recommendDesc.textContent = descTemps[tempState][i];
+        })
         outfitContainer.appendChild(d);
     }
     for (let i = 0; i < imgPrecip[precipState].length; i++) {
@@ -110,6 +119,9 @@ function recommendClothes() {
         d.style.height = "17.5vh";
         d.style.maxWidth = "17.5vh";
         d.style.margin = "2vh";
+        d.addEventListener("mouseover", function() {
+            recommendDesc.textContent = descPrecip[tempState][i];
+        })
         outfitContainer.appendChild(d);
     }
     outfitContainer.hidden = false;
@@ -117,3 +129,4 @@ function recommendClothes() {
 }
 
 recommendBtn.addEventListener("click", recommendClothes);
+outfitContainer.addEventListener("mouseout", function() {recommendDesc.textContent = "Hover over an item to get a description."});
