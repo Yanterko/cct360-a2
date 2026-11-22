@@ -15,7 +15,7 @@ let hasGottenRec = false;
 
 // Messages for the recommendations
 const msgTemps = ["It's cold outside", "It's mild outside", "It's warm outside!"];
-const msgPrecip = ["", "It's also raining...grab an umbrella.", "It's also snowing...dress for warmth!", "There's a chance of rain AND snow right now, expect slushy weather."];
+const msgPrecip = ["", "It's also raining... grab an umbrella.", "It's also snowing... dress for warmth!", "There's a chance of rain AND snow right now, expect slushy weather."];
 
 // List of image files
 const imgRootPath = "/images/";
